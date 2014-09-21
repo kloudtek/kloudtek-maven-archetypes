@@ -1,0 +1,8 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+#if( $oss_license.toLowerCase() == 'apl2')
+This project is licensed under the Apache 2.0 license.
+
+http://www.apache.org/licenses/LICENSE-2.0
+#end

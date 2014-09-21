@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2014 Kloudtek Ltd
+  -->
+
+<archetype-descriptor
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+        name="kloudtek-java" partial="true"
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/site</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory/>
+            <includes>
+                <include>license.txt</include>
+                <include>README.md</include>
+                <include>.gitignore</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <modules>
+        <module id="${rootArtifactId}-app" dir="__rootArtifactId__-app" name="${rootArtifactId}-app">
+
+        </module>
+        <module id="${rootArtifactId}-itests" dir="__rootArtifactId__-itests" name="${rootArtifactId}-itests">
+
+        </module>
+    </modules>
+    <requiredProperties>
+        <requiredProperty key="projectid">
+            <defaultValue>${artifactId}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="github">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="oss">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="oss_license">
+            <defaultValue>apl2</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="jdk">
+            <defaultValue>7</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="testng">
+            <defaultValue>yes</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="mockito">
+            <defaultValue>yes</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+</archetype-descriptor>

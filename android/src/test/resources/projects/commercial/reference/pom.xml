@@ -3,44 +3,31 @@
   ~ Copyright (c) 2014 Kloudtek Ltd
   -->
 
-#set( $github = $github.toLowerCase().startsWith('t') || $github.toLowerCase().startsWith('y') )
-#set( $oss = $oss.toLowerCase().startsWith('t') || $oss.toLowerCase().startsWith('y') )
-#set( $testng = $testng.toLowerCase().startsWith('t') || $testng.toLowerCase().startsWith('y') )
-#set( $mockito = $mockito.toLowerCase().startsWith('t') || $mockito.toLowerCase().startsWith('y') )
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}</artifactId>
-    <version>${version}</version>
-    <description>${description}</description>
+    <groupId>archetype.it</groupId>
+    <artifactId>basic</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <description>integration test</description>
     <url>https://github.com/Kloudtek/ktutils</url>
     <organization>
         <name>Kloudtek</name>
         <url>http://www.kloudtek.com</url>
     </organization>
-#if( $github )
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/kloudtek/${projectid}/issues</url>
+        <url>https://github.com/kloudtek/basic/issues</url>
     </issueManagement>
     <scm>
-        <url>scm:git:git@github.com:Kloudtek/${projectid}.git</url>
-        <connection>scm:git:git@github.com:Kloudtek/${projectid}.git</connection>
-        <developerConnection>scm:git:git@github.com:Kloudtek/${projectid}.git</developerConnection>
+        <url>scm:git:git@github.com:Kloudtek/basic.git</url>
+        <connection>scm:git:git@github.com:Kloudtek/basic.git</connection>
+        <developerConnection>scm:git:git@github.com:Kloudtek/basic.git</developerConnection>
     </scm>
-#end
     <licenses>
-#if( $oss )
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-#else
         <license>
             <name>Kloudtek commercial license</name>
         </license>
-#end
     </licenses>
     <dependencies>
         <dependency>
@@ -49,7 +36,6 @@
             <version>12.0</version>
             <scope>provided</scope>
         </dependency>
-#if( $github )
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -74,14 +60,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-#{end}
-#if( $mockito )
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.9.5</version>
         </dependency>
-#end
     </dependencies>
     <reporting>
         <plugins>
@@ -151,8 +134,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.$jdk</source>
-                    <target>1.$jdk</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -246,7 +229,6 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-#if( ! $oss )
         <repository>
             <id>kloudtek-releases</id>
             <name>Kloudtek private release</name>
@@ -269,7 +251,6 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-#end
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -294,7 +275,6 @@
                 <enabled>true</enabled>
             </snapshots>
         </pluginRepository>
-#if( ! $oss )
         <pluginRepository>
             <id>kloudtek-releases</id>
             <name>Kloudtek private releases</name>
@@ -317,21 +297,8 @@
                 <enabled>true</enabled>
             </snapshots>
         </pluginRepository>
-#end
     </pluginRepositories>
     <distributionManagement>
-#if( $oss )
-        <repository>
-            <id>kloudtek-oss-releases</id>
-            <name>Kloudtek OSS releases</name>
-            <url>s3://maven.kloudtek.com/release</url>
-        </repository>
-        <snapshotRepository>
-            <id>kloudtek-oss-snapshots</id>
-            <name>Kloudtek OSS snapshots</name>
-            <url>s3://maven.kloudtek.com/snapshot</url>
-        </snapshotRepository>
-#else
         <repository>
             <id>kloudtek-releases</id>
             <name>Kloudtek private releases</name>
@@ -342,6 +309,5 @@
             <name>Kloudtek private snapshots</name>
             <url>s3://kloudtek-maven-private/snapshot</url>
         </snapshotRepository>
-#end
     </distributionManagement>
 </project>

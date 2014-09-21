@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2014 Kloudtek Ltd
+  -->
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <xsl:template match="/pom">
 <!--
   ~ Copyright (c) 2014 Kloudtek Ltd
   -->
@@ -74,8 +80,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-#{end}
-#if( $mockito )
+#{end}#if( $mockito )
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
@@ -345,3 +350,6 @@
 #end
     </distributionManagement>
 </project>
+</xsl:template>
+
+</xsl:stylesheet>
