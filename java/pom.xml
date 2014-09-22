@@ -16,6 +16,14 @@
     <description>Archetype for java projects</description>
 
     <build>
+        <resources>
+            <resource>
+                <directory>../src/shared/other</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -33,7 +41,7 @@
                         <transformationSet>
                             <outputDir>src/main/resources/archetype-resources</outputDir>
                             <dir>src/main/xml</dir>
-                            <stylesheet>../fragments/pom.xsl</stylesheet>
+                            <stylesheet>../src/shared/xsl/pom.xsl</stylesheet>
                             <outputProperties>
                                 <outputProperty>
                                     <name>{http://saxon.sf.net/}indent-spaces</name>
