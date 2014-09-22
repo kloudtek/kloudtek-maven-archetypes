@@ -2,12 +2,13 @@
   ~ Copyright (c) 2014 Kloudtek Ltd
   -->
 
+<!--@formatter:off -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+    <xsl:output indent="yes"/>
     <xsl:template match="/pom">
-<!--
-  ~ Copyright (c) 2014 Kloudtek Ltd
-  -->
+        <xsl:comment>
+    ~ Copyright (c) 2014 Kloudtek Ltd
+</xsl:comment>
 
 #set( $github = $github.toLowerCase().startsWith('t') || $github.toLowerCase().startsWith('y') )
 #set( $oss = $oss.toLowerCase().startsWith('t') || $oss.toLowerCase().startsWith('y') )
@@ -353,3 +354,4 @@
 </xsl:template>
 
 </xsl:stylesheet>
+<!--@formatter:on -->

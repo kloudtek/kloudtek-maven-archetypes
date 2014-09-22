@@ -14,4 +14,43 @@
     <name>maven-archetype-java</name>
 
     <description>Archetype for java projects</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <transformationSets>
+                        <transformationSet>
+                            <outputDir>src/main/resources/archetype-resources</outputDir>
+                            <dir>src/main/xml</dir>
+                            <stylesheet>../fragments/pom.xsl</stylesheet>
+                            <outputProperties>
+                                <outputProperty>
+                                    <name>{http://saxon.sf.net/}indent-spaces</name>
+                                    <value>4</value>
+                                </outputProperty>
+                            </outputProperties>
+                        </transformationSet>
+                    </transformationSets>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sf.saxon</groupId>
+                        <artifactId>saxon</artifactId>
+                        <version>8.7</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 </project>
