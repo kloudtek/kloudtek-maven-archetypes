@@ -21,6 +21,9 @@
         </fileSet>
     </fileSets>
     <requiredProperties>
+        <requiredProperty key="submodule">
+            <defaultValue>no</defaultValue>
+        </requiredProperty>
         <requiredProperty key="projectid">
             <defaultValue>${artifactId}</defaultValue>
         </requiredProperty>

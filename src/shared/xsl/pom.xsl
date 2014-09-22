@@ -14,6 +14,7 @@
 #set( $oss = $oss.toLowerCase().startsWith('t') || $oss.toLowerCase().startsWith('y') )
 #set( $testng = $testng.toLowerCase().startsWith('t') || $testng.toLowerCase().startsWith('y') )
 #set( $mockito = $mockito.toLowerCase().startsWith('t') || $mockito.toLowerCase().startsWith('y') )
+#set( $submodule = $submodule.toLowerCase().startsWith('t') || $submodule.toLowerCase().startsWith('y') )
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -21,6 +22,7 @@
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <description>${description}</description>
+#if( ! $submodule )
     <url>https://github.com/Kloudtek/ktutils</url>
     <organization>
         <name>Kloudtek</name>
@@ -49,7 +51,9 @@
         </license>
 #end
     </licenses>
+#end
     <dependencies>
+#if( ! $submodule )
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>annotations</artifactId>
@@ -88,8 +92,10 @@
             <version>1.9.5</version>
         </dependency>
 #end
+#end
     </dependencies>
     <reporting>
+#if( ! $submodule )
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -149,9 +155,11 @@
                 <version>1.0.0-beta-1</version>
             </plugin>
         </plugins>
+#end
     </reporting>
     <build>
         <plugins>
+#if( ! $submodule )
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -228,8 +236,10 @@
                 <version>5.0.0.RELEASE</version>
             </extension>
         </extensions>
+#end
     </build>
     <repositories>
+#if( ! $submodule )
         <repository>
             <id>kloudtek-oss-releases</id>
             <name>Kloudtek OSS releases</name>
@@ -250,6 +260,17 @@
             </releases>
             <snapshots>
                 <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>kloudtek-oss-thirdparty</id>
+            <name>Kloudtek OSS thirdparty</name>
+            <url>https://s3.amazonaws.com/maven.kloudtek.com/thirdparty</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
             </snapshots>
         </repository>
 #if( ! $oss )
@@ -276,8 +297,10 @@
             </snapshots>
         </repository>
 #end
+#end
     </repositories>
     <pluginRepositories>
+#if( ! $submodule )
         <pluginRepository>
             <id>kloudtek-oss-releases</id>
             <name>Kloudtek OSS releases</name>
@@ -298,6 +321,17 @@
             </releases>
             <snapshots>
                 <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>kloudtek-oss-thirdparty</id>
+            <name>Kloudtek OSS thirdparty</name>
+            <url>https://s3.amazonaws.com/maven.kloudtek.com/thirdparty</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
 #if( ! $oss )
@@ -324,8 +358,10 @@
             </snapshots>
         </pluginRepository>
 #end
+#end
     </pluginRepositories>
     <distributionManagement>
+#if( ! $submodule )
 #if( $oss )
         <repository>
             <id>kloudtek-oss-releases</id>
@@ -348,6 +384,7 @@
             <name>Kloudtek private snapshots</name>
             <url>s3://kloudtek-maven-private/snapshot</url>
         </snapshotRepository>
+#end
 #end
     </distributionManagement>
 </project>

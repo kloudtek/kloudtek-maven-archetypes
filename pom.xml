@@ -11,6 +11,7 @@
     <modules>
         <module>java</module>
         <module>android</module>
+        <module>rest</module>
     </modules>
 
     <groupId>com.kloudtek.maven-archetype</groupId>

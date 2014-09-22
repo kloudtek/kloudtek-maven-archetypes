@@ -231,6 +231,17 @@
             </snapshots>
         </repository>
         <repository>
+            <id>kloudtek-oss-thirdparty</id>
+            <name>Kloudtek OSS thirdparty</name>
+            <url>https://s3.amazonaws.com/maven.kloudtek.com/thirdparty</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
             <id>kloudtek-releases</id>
             <name>Kloudtek private release</name>
             <url>s3://kloudtek-maven-private/release</url>
@@ -274,6 +285,17 @@
             </releases>
             <snapshots>
                 <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>kloudtek-oss-thirdparty</id>
+            <name>Kloudtek OSS thirdparty</name>
+            <url>https://s3.amazonaws.com/maven.kloudtek.com/thirdparty</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
         <pluginRepository>
